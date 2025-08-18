@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cryptizen</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🔐 Cryptizen</h1>
+    </header>
+    <section class="card">
+      <h2>État des clés</h2>
+      <div id="keysState">Chargement…</div>
+      <div class="row">
+        <button id="regenKeys">Régénérer les clés</button>
+        <button id="exportPub">Copier clé publique</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Préférences rapides</h2>
+      <label><input type="checkbox" id="autoEnc"> Auto-chiffrer</label>
+      <label><input type="checkbox" id="autoDec"> Auto-déchiffrer</label>
+      <label><input type="checkbox" id="clickDec"> Cliquer pour déchiffrer</label>
+      <label><input type="checkbox" id="signMsg"> Signer les messages</label>
+      <div class="row">
+        <input id="prefix" placeholder="Préfixe message (ex: CRYPTIZEN|)" />
+        <button id="savePrefs">Sauvegarder</button>
+      </div>
+      <div class="small">Plus d’options dans la page Options.</div>
+    </section>
+    <section class="card">
+      <h2>Sécurité</h2>
+      <div class="row">
+        <input id="passphrase" type="password" placeholder="Mot de passe de chiffrement" />
+        <button id="setPass">Définir</button>
+      </div>
+      <div class="small">Utilisé pour chiffrer votre clé privée en stockage permanent.</div>
+    </section>
+    <footer>
+      <a id="openOptions" href="#">Ouvrir Options</a>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

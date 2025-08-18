@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Cryptizen",
+  "description": "Cryptizen est une extension open-source qui chiffre vos messages sur les réseaux sociaux pour garantir une communication privée et sécurisée.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "Cryptizen",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "commands": {
+    "encrypt-current-message": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E"
+      },
+      "description": "Chiffrer le message en cours"
+    }
+  },
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": [
+        "content/runtime.js",
+        "content/dom.js",
+        "content/contacts.js",
+        "content/decrypt.js",
+        "content/scan.js",
+        "content/invite.js",
+        "content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "styles/overlay.css",
+        "config.json"
+      ],
+      "matches": ["*://*/*"]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cryptizen — Préférences</title>
+  <link rel="stylesheet" href="options.css"/>
+</head>
+<body>
+  <main class="container">
+    <h1>🔐 Cryptizen — Préférences</h1>
+
+    <section class="card">
+      <h2>État</h2>
+      <div id="fp">Chargement…</div>
+      <div class="row">
+        <button id="regen">Régénérer les clés</button>
+        <button id="copyPub">Copier clés publiques</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Comportement</h2>
+      <div class="grid">
+        <label><input type="checkbox" id="autoEncrypt"> Auto-chiffrer</label>
+        <label><input type="checkbox" id="autoDecrypt"> Auto-déchiffrer</label>
+        <label><input type="checkbox" id="clickToDecrypt"> Cliquer pour déchiffrer</label>
+        <label><input type="checkbox" id="signMessages"> Signer les messages</label>
+      </div>
+
+      <div class="row">
+        <label class="inline">
+          Préfixe:
+          <input id="prefix" placeholder="CRYPTIZEN|"/>
+        </label>
+
+        <label class="inline">
+          Position du cadenas:
+          <select id="lockPos">
+            <option value="top-left">Haut gauche</option>
+            <option value="top-right">Haut droite</option>
+            <option value="bottom-right">Bas droite</option>
+            <option value="bottom-left">Bas gauche</option>
+          </select>
+        </label>
+
+        <button id="savePrefs">Sauvegarder</button>
+      </div>
+
+      <p class="hint">
+        Raccourci clavier : ouvrez <code>chrome://extensions/shortcuts</code> puis assignez “encrypt-current-message”.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Import / Export sécurisé des clés privées</h2>
+
+      <div class="gate">
+        <label><input type="checkbox" id="bioGate"> Demander une vérification biométrique / PIN (si disponible)</label>
+      </div>
+
+      <div class="row">
+        <input type="password" id="bkPass" placeholder="Passphrase de sauvegarde"/>
+        <button id="doExport">Exporter (JSON chiffré)</button>
+      </div>
+
+      <div class="row">
+        <input type="file" id="bkFile" accept="application/json"/>
+        <input type="password" id="bkPassImport" placeholder="Passphrase de sauvegarde"/>
+        <button id="doImport">Importer</button>
+      </div>
+
+      <p class="hint">Vos clés privées sont stockées chiffrées localement. L’export crée un fichier JSON chiffré par votre passphrase.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contacts</h2>
+      <table id="contacts" class="table"></table>
+    </section>
+
+    <section class="card">
+      <h2>Configuration active (lecture seule)</h2>
+      <pre id="cfgPreview" class="code"></pre>
+      <div class="row">
+        <button id="exportCfg">Exporter config.json</button>
+        <input type="file" id="cfgFile" accept="application/json"/>
+        <button id="importCfg">Importer (override)</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>

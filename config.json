@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "allowAll": false,
+  "domains": [
+    {
+      "hostPattern": "*.twitter.com",
+      "name": "X (Twitter) DMs",
+      "selectors": {
+        "input": "div[data-testid='dmComposerTextInput'] div[contenteditable='true']",
+        "username": "header h2, div[aria-label='Conversation information'] h2",
+        "messageList": "div[aria-label='Messages']"
+      },
+      "conversationIdFromUrl": "twitter.com/messages/(\\d+)"
+    },
+    {
+      "hostPattern": "*.facebook.com",
+      "name": "Facebook Messenger",
+      "selectors": {
+        "input": "div[role='textbox'][contenteditable='true']",
+        "username": "h1 a[href*='messages'] span, h2[dir]",
+        "messageList": "div[role='main']"
+      },
+      "conversationIdFromUrl": "facebook.com/messages/t/(\\d+)"
+    },
+    {
+      "hostPattern": "*.instagram.com",
+      "name": "Instagram Direct",
+      "selectors": {
+        "input": "textarea[placeholder], div[contenteditable='true']",
+        "username": "header h2, header span[title]",
+        "messageList": "div[role='dialog'], main section"
+      },
+      "conversationIdFromUrl": "instagram.com/direct/t/(\\d+)"
+    },
+    {
+      "hostPattern": "*.linkedin.com",
+      "name": "LinkedIn Messaging",
+      "selectors": {
+        "input": "div.msg-form__contenteditable[contenteditable='true'], div[contenteditable='true'].msg-form__contenteditable",
+        "username": "h2.msg-conversation-card__person-name, header h2",
+        "messageList": "div.msg-s-message-listcontent, div.msg-s-message-list__event"
+      },
+      "conversationIdFromUrl": "linkedin.com/messaging/thread/(\\d+)"
+    },
+    {
+      "hostPattern": "discord.com",
+      "name": "Discord",
+      "selectors": {
+        "input": "div[role='textbox'][contenteditable='true']",
+        "username": "h3.header_c19a55 span.username_c19a55, h3.header_c19a55 span.headerText_c19a55",
+        "messageList": "ol.scrollerInner__36d07[aria-label^='Messages']"
+      },
+      "conversationIdFromUrl": "discord.com/channels/\\d+/(\\d+)"
+    }
+  ]
+}
