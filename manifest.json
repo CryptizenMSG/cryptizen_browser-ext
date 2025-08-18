@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Cryptizen",
-  "description": "Cryptizen est une extension open-source qui chiffre vos messages sur les réseaux sociaux pour garantir une communication privée et sécurisée.",
+  "description": "Cryptizen est une extension qui chiffre vos messages sur les réseaux sociaux pour garantir une communication privée et sécurisée.",
   "version": "1.0.0",
   "action": {
     "default_title": "Cryptizen",
