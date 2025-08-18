@@ -3,7 +3,7 @@
   "allowAll": false,
   "domains": [
     {
-      "hostPattern": "*.twitter.com",
+      "hostPattern": "x.com",
       "name": "X (Twitter) DMs",
       "selectors": {
         "input": "div[data-testid='dmComposerTextInput'] div[contenteditable='true']",
