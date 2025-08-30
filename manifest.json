@@ -15,8 +15,7 @@
   "permissions": [
     "storage",
     "scripting",
-    "activeTab",
-    "tabs"
+    "activeTab"
   ],
   "commands": {
     "encrypt-current-message": {
